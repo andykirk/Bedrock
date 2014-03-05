@@ -77,9 +77,13 @@ Images workflow:
 ----------------
 
 A. Create/edit vector in Illustrator. Save as .eps in `/_images/*?` for future use.
+
 B. Save as .svg in `/_images/*?`.
+
 C. When `grunt image` is ran (or the folder is being watched), svgmin will put the minified version into `/public/img/*?` for production use.
+
 D. Then svg2png will create a .png in `/_images/*?`
+
 E. Then imagemin will create an optimised version in `/public/img/*?`  for production use.
 
 
@@ -87,6 +91,10 @@ CSS workflow:
 -------------
 
 A. Compose / edit style.scss file in the usual way in `/_styles`.
+
 B. When grunt css is ran (or the folder is being watched), sass will generate `/_styles/style.css`.
+
 C. Then autoprefixer will do it's thing and create `/_styles/style.prefixed.css`.
+
 D. Then cssmin will create minify the file and put into `/public/css/style.min.css` for production use.
+
