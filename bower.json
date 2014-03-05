@@ -13,7 +13,7 @@
       "src": [
         "bower_components/modernizr/modernizr.js"
       ],
-      "dest": "public/js/vendor/modernizr.js"
+      "dest": "_scripts/vendor/modernizr.js"
     },
     {
       "src": [

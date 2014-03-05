@@ -172,6 +172,10 @@ module.exports = function(grunt) {
             build: {
                 src: 'js/script.js',
                 dest: 'js/script.min.js'
+            },
+            install: {
+                src: '_scripts/vendor/modernizr.js',
+                dest: 'public/js/vendor/modernizr.min.js'
             }
         },
 
@@ -267,7 +271,7 @@ module.exports = function(grunt) {
     grunt.registerTask('image', ['svgmin', 'svg2png', 'imagemin']);
     
     //(Re)build the project:
-    grunt.registerTask('build', ['create_structure', 'bower', 'copy', 'generate_index']);
+    grunt.registerTask('build', ['create_structure', 'bower', 'copy', 'generate_index', 'uglify:install']);
     
     // Start up development mode:
     // @TODO add livereload stuff.
