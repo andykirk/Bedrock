@@ -58,8 +58,12 @@ First,open `directory-structure.json`. Here you will find a list of directories 
 Next, open `bower.json` and `examples.bower.js`. Copy the config lines for the packages you want from `examples.bower.js` to `bower`.
 Of course, you can add whatever you like, the settings in `bower.js` are what I use most often, with common changes outlined in `examples.bower.js`. It is by now means a definitive list.
 
-Bedrocks `bower.js` file differs from a normal bower file in that it also includes a list of copy instructions. The Grunt task separates out these instructions and passes them to [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy) (see their website for details on how to write the copy config.)
+Bedrocks' `bower.js` file differs from a normal bower file in that it also includes a list of copy instructions. The Grunt task separates out these instructions and passes them to [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy) (see their website for details on how to write the copy config.)
 The idea is that you can tell Grunt to copy files provided by bower into the places you prefer for your setup using the structure you specified above.
+
+Next, open the `_template.html` file. This file s based off of HTML5 Boilerplates index.html. Eidt this file if you need to.
+
+*Note:* Currently this file _could_ just be an `index.html` file, but I have plans to add further settings to build the `index.html` file in a modular fashion to include markup for common tools and utilities (see below for the ideas).
 
 Finally, you can edit the `Grunt.js` file itself if you want to change what tasks are run and in what order.
 
@@ -97,4 +101,26 @@ B. When grunt css is ran (or the folder is being watched), sass will generate `/
 C. Then autoprefixer will do it's thing and create `/_styles/style.prefixed.css`.
 
 D. Then cssmin will create minify the file and put into `/public/css/style.min.css` for production use.
+
+
+Note, Ideas and To Do List
+--------------------------
+
+### Ideas for index.html flags/patterns:
+(Some of these will just in/exclude H5BP stuff, others will use markup form elsewhere or my own research)
+
+* IE8
+* Universal IE
+* Modernizr (possibility to specify/configure custom build)
+* Jquery
+* Bootstrap
+* Foundation
+* Force https?
+* Force/remove www?
+* Force/remove trailing slash?
+* Google analytics
+* Piwik
+* Piwik cookie law
+* Cookie control
+
 
