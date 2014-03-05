@@ -21,7 +21,7 @@ NOTES
 
 \* -------------------------- */
 
-var dir_structure = [
+/*var dir_structure = [
     '_images',
     '_scripts',
     '_styles',
@@ -32,7 +32,7 @@ var dir_structure = [
     'public/js',
     'public/js/vendor',
     'public/vid',
-];
+];*/
 
 module.exports = function(grunt) {
 
@@ -229,10 +229,11 @@ module.exports = function(grunt) {
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     
     grunt.task.registerTask('create_structure', 'Create the files and folders', function() {
+        dirs = grunt.file.readJSON('directory_structure.json');
         var i = 0
-          , l = dir_structure.length;
+          , l = dirs.length;
         for (i; i<l; i++) {
-            grunt.file.mkdir(dir_structure[i]);
+            grunt.file.mkdir(dirs[i]);
         }
     });
     

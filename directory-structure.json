@@ -1,0 +1,12 @@
+[
+    '_images',
+    '_scripts',
+    '_styles',
+    '_videos',
+    'public/css',
+    'public/css/vendor',
+    'public/img',
+    'public/js',
+    'public/js/vendor',
+    'public/vid',
+]
