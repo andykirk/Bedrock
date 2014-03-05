@@ -4,20 +4,23 @@ NOTES
 1. "jpegtran-bin": "0.2.0" in package.json is only temporary. See: http://stackoverflow.com/questions/19906510/npm-module-grunt-contrib-imagemin-not-found-is-it-installed.
 
 2. Images workflow:
-    A. Create/edit vector in Illustrator. Save as .eps in /_images/*? for future use.
-    B. Save as .svg in /_images/*?.
-    C. When `grunt image` is ran (or Grunt is watching), svgmin will put the minified version into /img/*?
-    D. Then svg2png will create a .png in /_images/*?
-    E. Then imagemin will create an optimised version in /img/*?
-    
-    NOTE that without '<?xml version="1.0" encoding="utf-8"?>' svg2png will fail so don't run it on the minified .svg,
-    but also check other / old .svg files if the .png fails.
-    
+----------------
+
+    A. Create/edit vector in Illustrator. Save as .eps in `/_images/*?` for future use.
+    B. Save as .svg in `/_images/*?`.
+    C. When `grunt image` is ran (or the folder is being watched), svgmin will put the minified version into `/public/img/*?` for production use.
+    D. Then svg2png will create a .png in `/_images/*?`
+    E. Then imagemin will create an optimised version in `/public/img/*?`  for production use.
+
+
 3. CSS workflow:
-    A. Compose / edit style.scss file in the usual way in /css.
-    B. If grunt is running, sass will generate style.css /css.
-    C. Then autoprefixer will do it's thing and create style.prefixed.css in /css
-    D. Then cssmin will create style.min.css in /css.
+-------------
+
+    A. Compose / edit style.scss file in the usual way in `/_styles`.
+    B. When grunt css is ran (or the folder is being watched), sass will generate `/_styles/style.css`.
+    C. Then autoprefixer will do it's thing and create `/_styles/style.prefixed.css`.
+    D. Then cssmin will create minify the file and put into `/public/css/style.min.css` for production use.
+
 
 \* -------------------------- */
 

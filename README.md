@@ -46,4 +46,47 @@ This should associate your new project with your new repo, complete with the Bed
 
 ### Step 3:
 
-You need to tell Node to load all the packages specified by `packages.json`. If you're confident to make changes to the packages you want, go ahead and edit this file, then run `nmp install`
+You need to tell Node to load all the packages specified by `packages.json`. If you're confident to make changes to the packages you want, go ahead and edit this file, then run `nmp install`.
+
+
+### Step 4:
+
+The purpose of Bedrock is to allow you to configure a new project by changing only a few settings, so you need to make those changes now.
+
+First,open `directory-structure.json`. Here you will find a list of directories that Grunt will create. Adapt this to your preferred directly structure. 
+
+Next, open `bower.json` and `examples.bower.js`. Copy the config lines for the packages you want from `examples.bower.js` to `bower`.
+Of course, you can add whatever you like, the settings in `bower.js` are what I use most often, with common changes outlined in `examples.bower.js`. It is by now means a definitive list.
+
+Bedrocks `bower.js` file differs from a normal bower file in that it also includes a list of copy instructions. The Grunt task separates out these instructions and passes them to [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy) (see their website for details on how to write the copy config.)
+The idea is that you can tell Grunt to copy files provided by bower into the places you prefer for your setup using the structure you specified above.
+
+Finally, you can edit the `Grunt.js` file itself if you want to change what tasks are run and in what order.
+
+
+### Step 5
+
+Once you're happy with how you've set up your project, make sure you're still in your project folder from the end of Step 1 and run `grunt build`.
+This should create your folders, install your packages and copy all your files.
+
+The other grunt tasks that are defined in the `Grunt.js` file are thins like compiling stylesheets from sass, contactinating javascript files and optimising images.
+These will need to be configured to your needs and to match your directory structure to make sure the files are generated in the correct places.
+
+
+Images workflow:
+----------------
+
+A. Create/edit vector in Illustrator. Save as .eps in `/_images/*?` for future use.
+B. Save as .svg in `/_images/*?`.
+C. When `grunt image` is ran (or the folder is being watched), svgmin will put the minified version into `/public/img/*?` for production use.
+D. Then svg2png will create a .png in `/_images/*?`
+E. Then imagemin will create an optimised version in `/public/img/*?`  for production use.
+
+
+CSS workflow:
+-------------
+
+A. Compose / edit style.scss file in the usual way in `/_styles`.
+B. When grunt css is ran (or the folder is being watched), sass will generate `/_styles/style.css`.
+C. Then autoprefixer will do it's thing and create `/_styles/style.prefixed.css`.
+D. Then cssmin will create minify the file and put into `/public/css/style.min.css` for production use.
