@@ -61,7 +61,7 @@ Of course, you can add whatever you like, the settings in `bower.js` are what I 
 Bedrocks' `bower.js` file differs from a normal bower file in that it also includes a list of copy instructions. The Grunt task separates out these instructions and passes them to [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy) (see their website for details on how to write the copy config.)
 The idea is that you can tell Grunt to copy files provided by bower into the places you prefer for your setup using the structure you specified above.
 
-Next, open the `_template.html` file. This file s based off of HTML5 Boilerplates index.html. Eidt this file if you need to.
+Next, open the `_template.html` file. This file is based off of HTML5 Boilerplates index.html. Eidt this file if you need to.
 
 *Note:* Currently this file _could_ just be an `index.html` file, but I have plans to add further settings to build the `index.html` file in a modular fashion to include markup for common tools and utilities (see below for the ideas).
 

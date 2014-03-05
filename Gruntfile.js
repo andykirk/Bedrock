@@ -232,7 +232,7 @@ module.exports = function(grunt) {
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     
     grunt.task.registerTask('create_structure', 'Create the files and folders', function() {
-        dirs = grunt.file.readJSON('directory_structure.json');
+        dirs = grunt.file.readJSON('directory-structure.json');
         var i = 0
           , l = dirs.length;
         for (i; i<l; i++) {
