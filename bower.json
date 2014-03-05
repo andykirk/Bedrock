@@ -1,0 +1,31 @@
+{
+  "name": "bedrock",
+  "version": "0.1",
+  "main": "",
+  "ignore": [],
+  "dependencies": {
+    "jquery": "1.11.0",
+    "modernizr": "~2.7.1",
+    "normalize-css": "~3.0.0"
+  },
+  "copy": [
+    {
+      "src": [
+        "bower_components/modernizr/modernizr.js"
+      ],
+      "dest": "public/js/vendor/modernizr.js"
+    },
+    {
+      "src": [
+        "bower_components/jquery/dist/jquery.min.js"
+      ],
+      "dest": "public/js/vendor/jquery.min.js"
+    },
+    {
+      "src": [
+        "bower_components/normalize-css/normalize.css"
+      ],
+      "dest": "public/css/vendor/normalize.css"
+    }
+  ]
+}
