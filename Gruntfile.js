@@ -271,7 +271,8 @@ module.exports = function(grunt) {
     grunt.registerTask('image', ['svgmin', 'svg2png', 'imagemin']);
     
     //(Re)build the project:
-    grunt.registerTask('build', ['create_structure', 'bower', 'copy', 'generate_index', 'uglify:install']);
+    //grunt.registerTask('build', ['create_structure', 'bower', 'copy', 'generate_index', 'uglify:install']);
+    grunt.registerTask('build', ['create_structure', 'bower', 'copy', 'generate_index']);
     
     // Start up development mode:
     // @TODO add livereload stuff.
