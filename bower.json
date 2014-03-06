@@ -4,28 +4,61 @@
   "main": "",
   "ignore": [],
   "dependencies": {
-    "jquery": "1.11.0",
-    "modernizr": "~2.7.1",
-    "normalize-css": "~3.0.0"
+    "html5-boilerplate": "",
+    "ImageService": "~1.0.1"
   },
   "copy": [
     {
+      "expand": true, 
+      "cwd": "bower_components/html5-boilerplate/css/",
       "src": [
-        "bower_components/modernizr/modernizr.js"
+        "*"
       ],
-      "dest": "_scripts/vendor/modernizr.js"
+      "dest": "public/css/"
+    },
+    {
+      "expand": true,
+      "cwd": "bower_components/html5-boilerplate/js/",
+      "src": [
+        "**"
+      ],
+      "dest": "public/js/"
     },
     {
       "src": [
-        "bower_components/jquery/dist/jquery.min.js"
+        "bower_components/html5-boilerplate/.htaccess"
       ],
-      "dest": "public/js/vendor/jquery.min.js"
+      "dest": "public/.htaccess"
     },
     {
       "src": [
-        "bower_components/normalize-css/normalize.css"
+        "bower_components/html5-boilerplate/crossdomain.xml"
       ],
-      "dest": "public/css/vendor/normalize.css"
+      "dest": "public/crossdomain.xml"
+    },
+    {
+      "src": [
+        "bower_components/html5-boilerplate/humans.txt"
+      ],
+      "dest": "public/humans.txt"
+    },
+    {
+      "src": [
+        "bower_components/html5-boilerplate/robots.txt"
+      ],
+      "dest": "public/robots.txt"
+    },
+    {
+      "src": [
+        "bower_components/ImageService/images.php"
+      ],
+      "dest": "public/img/images.php"
+    },
+    {
+      "src": [
+        "bower_components/ImageService/.htaccess"
+      ],
+      "dest": "public/img/.htaccess"
     }
   ]
 }
