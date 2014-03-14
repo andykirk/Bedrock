@@ -28,4 +28,6 @@
       "dest": "public/css/vendor/normalize.css"
     }
   ]
+  "rename": {
+  }
 }
