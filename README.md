@@ -3,11 +3,11 @@ Bedrock
 
 An opinionated collection of settings/config/initialisation files for starting new projects via Grunt, Bower and Composer.
 
-It's made for personal use, but if anyone feels inspired to majke use of it, that's great.
+It's made for personal use, but if anyone feels inspired to make use of it, that's great.
 
 Since starting this, I've become aware of [Init](https://github.com/use-init/init). 
 That project looks amazing, but perhaps a little too involved for me at this point, plus, I always have my own ways of doing things.
-However, there are some basic similarities in that the [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) is used a starting point, adn [Grunt](http://gruntjs.com/) is used to customise everything.
+However, there are some basic similarities in that the [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) is used a starting point, and [Grunt](http://gruntjs.com/) is used to customise everything.
 
 
 Requirements
@@ -58,10 +58,10 @@ First,open `directory-structure.json`. Here you will find a list of directories 
 Next, open `bower.json` and `examples.bower.js`. Copy the config lines for the packages you want from `examples.bower.js` to `bower`.
 Of course, you can add whatever you like, the settings in `bower.js` are what I use most often, with common changes outlined in `examples.bower.js`. It is by now means a definitive list.
 
-Bedrocks' `bower.js` file differs from a normal bower file in that it also includes a list of copy instructions. The Grunt task separates out these instructions and passes them to [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy) (see their website for details on how to write the copy config.)
+Bedrocks' `bower.js` file differs from a normal bower file in that it also includes a list of copy instructions and rename instructions. The Grunt task separates out these instructions and passes them to [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy) and [grunt-rename](https://github.com/jdavis/grunt-rename) respectively (see their websites for details on how to write the configs.)
 The idea is that you can tell Grunt to copy files provided by bower into the places you prefer for your setup using the structure you specified above.
 
-Next, open the `_template.html` file. This file is based off of HTML5 Boilerplates index.html. Eidt this file if you need to.
+Next, open the `_template.html` file. This file is based off of HTML5 Boilerplates index.html. Edit this file if you need to.
 
 *Note:* Currently this file _could_ just be an `index.html` file, but I have plans to add further settings to build the `index.html` file in a modular fashion to include markup for common tools and utilities (see below for the ideas).
 
@@ -70,10 +70,10 @@ Finally, you can edit the `Grunt.js` file itself if you want to change what task
 
 ### Step 5
 
-Once you're happy with how you've set up your project, make sure you're still in your project folder from the end of Step 1 and run `grunt build`.
+Once you're happy with how you've set up your project, make sure you're still in your project folder from the end of Step 1 and run `grunt setup`.
 This should create your folders, install your packages and copy all your files.
 
-The other grunt tasks that are defined in the `Grunt.js` file are thins like compiling stylesheets from sass, contactinating javascript files and optimising images.
+The other grunt tasks that are defined in the `Grunt.js` file are thins like compiling stylesheets from sass, concatenating javascript files and optimising images.
 These will need to be configured to your needs and to match your directory structure to make sure the files are generated in the correct places.
 
 
