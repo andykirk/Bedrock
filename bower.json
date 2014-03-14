@@ -6,7 +6,8 @@
   "dependencies": {
     "jquery": "1.11.0",
     "modernizr": "~2.7.1",
-    "normalize-css": "~3.0.0"
+    "normalize-css": "~3.0.0",
+    "ImageService": "~1.0.1"
   },
   "copy": [
     {
@@ -26,6 +27,18 @@
         "bower_components/normalize-css/normalize.css"
       ],
       "dest": "public/css/vendor/normalize.css"
+    },
+    {
+      "src": [
+        "bower_components/ImageService/images.php"
+      ],
+      "dest": "public/img/images.php"
+    },
+    {
+      "src": [
+        "bower_components/ImageService/.htaccess"
+      ],
+      "dest": "public/img/.htaccess"
     }
   ],
   "rename": {
