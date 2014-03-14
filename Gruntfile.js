@@ -39,16 +39,8 @@ NOTES
 
 module.exports = function(grunt) {
 
-    // Extract the 'copy' config from bower.json:
-    var bower_config  = grunt.file.readJSON('bower.json');
-    var copy_config   = bower_config['copy'];
-    var rename_config = bower_config['rename'];
-    // Uncomment to verify copy config:
-    //grunt.file.write('copy_config.json', JSON.stringify(copy_config));
-
-
     // 1. All configuration goes here
-    grunt.initConfig({
+    var grunt_config = {
     
         pkg: grunt.file.readJSON('package.json'),
 
@@ -98,13 +90,6 @@ module.exports = function(grunt) {
             }*/
         },
         
-        // https://github.com/gruntjs/grunt-contrib-copy
-        copy: {
-            main: {
-                files: copy_config
-            }
-        },
-        
         // https://github.com/gruntjs/grunt-contrib-cssmin
         cssmin: {
             minify: {
@@ -127,10 +112,7 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        
-        // https://github.com/jdavis/grunt-rename
-        rename: rename_config,
-        
+                
         // https://github.com/gruntjs/grunt-contrib-sass
         sass: {
             dist: {
@@ -220,7 +202,36 @@ module.exports = function(grunt) {
             },
         }
 
-    });
+    };
+    
+    // Extract the 'copy' config from bower.json:
+    var bower_config  = grunt.file.readJSON('bower.json');
+    var copy_config   = bower_config['copy'];
+    var rename_config = bower_config['rename'];
+    // Uncomment to verify copy config:
+    //grunt.file.write('copy_config.json', JSON.stringify(copy_config));
+    
+    // Add copy task if config not empty:
+    if (Object.keys(copy_config).length > 0) {
+        // https://github.com/gruntjs/grunt-contrib-copy
+        grunt_config['copy'] = {
+            main: {
+                files: copy_config
+            }
+        }
+    } else {
+        copy_config = false;
+    }
+    
+    // Add rename task if config not empty:
+    if (Object.keys(rename_config).length > 0) {
+        // https://github.com/jdavis/grunt-rename
+        grunt_config['rename'] = rename_config;
+    } else {
+        rename_config = false;
+    }
+    
+    grunt.initConfig(grunt_config);
 
     // 3. Where we tell Grunt we plan to use this plug-in.
     grunt.loadNpmTasks('grunt-autoprefixer');
@@ -275,8 +286,13 @@ module.exports = function(grunt) {
     // Optimize images and create png fallbacks for svg:
     grunt.registerTask('image', ['svgmin', 'svg2png', 'imagemin']);
     
-    //(Re)build the project:
-    grunt.registerTask('setup', ['create_structure', 'bower', 'copy', 'rename', 'generate_index', 'uglify:install']);
+    // Set up the project:
+    var setup_tasks = ['create_structure', 'bower', 'generate_index', 'uglify:install'];
+    
+    if (copy_config)   { setup_tasks.push('copy');   }
+    if (rename_config) { setup_tasks.push('rename'); }
+    
+    grunt.registerTask('setup', setup_tasks);
     
     // Start up development mode:
     // @TODO add livereload stuff.

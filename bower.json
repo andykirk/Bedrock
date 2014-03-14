@@ -19,7 +19,7 @@
       "src": [
         "bower_components/jquery/dist/jquery.min.js"
       ],
-      "dest": "public/js/vendor/jquery.min.js"
+      "dest": "public/js/vendor/jquery-1.11.0.min.js"
     },
     {
       "src": [
@@ -27,7 +27,7 @@
       ],
       "dest": "public/css/vendor/normalize.css"
     }
-  ]
+  ],
   "rename": {
   }
 }
