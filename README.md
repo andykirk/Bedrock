@@ -73,7 +73,7 @@ Finally, you can edit the `Grunt.js` file itself if you want to change what task
 Once you're happy with how you've set up your project, make sure you're still in your project folder from the end of Step 1 and run `grunt setup`.
 This should create your folders, install your packages and copy all your files.
 
-The other grunt tasks that are defined in the `Grunt.js` file are thins like compiling stylesheets from sass, concatenating javascript files and optimising images.
+The other grunt tasks that are defined in the `Grunt.js` file are things like compiling stylesheets from sass, concatenating javascript files and optimising images.
 These will need to be configured to your needs and to match your directory structure to make sure the files are generated in the correct places.
 
 
