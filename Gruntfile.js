@@ -40,8 +40,9 @@ NOTES
 module.exports = function(grunt) {
 
     // Extract the 'copy' config from bower.json:
-    var bower_config = grunt.file.readJSON('bower.json');
-    var copy_config  = bower_config['copy'];
+    var bower_config  = grunt.file.readJSON('bower.json');
+    var copy_config   = bower_config['copy'];
+    var rename_config = bower_config['rename'];
     // Uncomment to verify copy config:
     //grunt.file.write('copy_config.json', JSON.stringify(copy_config));
 
@@ -126,6 +127,9 @@ module.exports = function(grunt) {
                 }]
             }
         },
+        
+        // https://github.com/jdavis/grunt-rename
+        rename: rename_config,
         
         // https://github.com/gruntjs/grunt-contrib-sass
         sass: {
@@ -229,6 +233,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-rename');
     grunt.loadNpmTasks('grunt-svgmin');
     grunt.loadNpmTasks('grunt-svg2png');
     
@@ -272,7 +277,7 @@ module.exports = function(grunt) {
     
     //(Re)build the project:
     //grunt.registerTask('build', ['create_structure', 'bower', 'copy', 'generate_index', 'uglify:install']);
-    grunt.registerTask('build', ['create_structure', 'bower', 'copy', 'generate_index']);
+    grunt.registerTask('build', ['create_structure', 'bower', 'copy', 'rename', 'generate_index']);
     
     // Start up development mode:
     // @TODO add livereload stuff.

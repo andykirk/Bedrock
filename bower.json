@@ -60,5 +60,7 @@
       ],
       "dest": "public/img/.htaccess"
     }
-  ]
+  ],
+  "rename": {
+  }
 }
