@@ -1,5 +1,7 @@
-Bedrock
-=======
+Bedrock - Foundation-Sass Branch
+================================
+
+_This branch is intended for use when setting up a Foundation-based project where you intended to develop using the sass files and the Grunt build/watch tasks._
 
 An opinionated collection of settings/config/initialisation files for starting new projects via Grunt, Bower and Composer.
 
