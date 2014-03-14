@@ -57,7 +57,11 @@ module.exports = function(grunt) {
         
         // https://github.com/yatskevich/grunt-bower-task
         bower: {
-            install: {}
+            install: {
+                options: {
+                    copy: false
+                }
+            }
         },
         
         // https://github.com/gruntjs/grunt-contrib-compass
