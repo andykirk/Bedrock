@@ -1,52 +1,26 @@
 {
-  "name": "bedrock-h5bp",
+  "name": "bedrock-foundation-sass",
   "version": "0.1",
   "main": "",
   "ignore": [],
   "dependencies": {
-    "html5-boilerplate": "",
+    "foundation": "zurb/bower-foundation",
     "ImageService": "~1.0.1"
   },
   "copy": [
     {
-      "expand": true, 
-      "cwd": "bower_components/html5-boilerplate/css/",
-      "src": [
-        "*"
-      ],
-      "dest": "public/css/"
-    },
-    {
       "expand": true,
-      "cwd": "bower_components/html5-boilerplate/js/",
+      "cwd": "bower_components/foundation/scss/",
       "src": [
         "**"
       ],
-      "dest": "public/js/"
+      "dest": "_styles/foundation-scss/"
     },
     {
       "src": [
-        "bower_components/html5-boilerplate/.htaccess"
+        "bower_components/modernizr/modernizr.js"
       ],
-      "dest": "public/.htaccess"
-    },
-    {
-      "src": [
-        "bower_components/html5-boilerplate/crossdomain.xml"
-      ],
-      "dest": "public/crossdomain.xml"
-    },
-    {
-      "src": [
-        "bower_components/html5-boilerplate/humans.txt"
-      ],
-      "dest": "public/humans.txt"
-    },
-    {
-      "src": [
-        "bower_components/html5-boilerplate/robots.txt"
-      ],
-      "dest": "public/robots.txt"
+      "dest": "_scripts/vendor/modernizr.js"
     },
     {
       "src": [
@@ -59,6 +33,24 @@
         "bower_components/ImageService/.htaccess"
       ],
       "dest": "public/img/.htaccess"
+    },
+    {
+      "src": [
+        "base_files/_settings.scss"
+      ],
+      "dest": "_styles/_settings.scss"
+    },
+    {
+      "src": [
+        "base_files/style.scss"
+      ],
+      "dest": "_styles/style.scss"
+    },
+    {
+      "src": [
+        "base_files/script.js"
+      ],
+      "dest": "_scripts/script.js"
     }
   ],
   "rename": {

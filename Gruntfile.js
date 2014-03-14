@@ -79,11 +79,11 @@ module.exports = function(grunt) {
         concat: {
             js: {
                 src: [
-                    'vendor/jquery.js',
-                    'js/bootstrap.js',
-                    'js/main.js'
+                    'bower_components/jquery/dist/jquery.js',
+                    'bower_components/foundation/js/foundation.js',
+                    '_scripts/script.js'
                 ],
-                dest: 'js/script.js'
+                dest: '_scripts/scripts.compiled.js'
             }/*,
             css: {
                 src: [
@@ -119,6 +119,9 @@ module.exports = function(grunt) {
                 
         // https://github.com/gruntjs/grunt-contrib-sass
         sass: {
+            options: {
+                loadPath: ['_styles/foundation-scss']
+            },
             dist: {
                 options: {
                     style: 'expanded',
@@ -160,8 +163,8 @@ module.exports = function(grunt) {
         // https://github.com/gruntjs/grunt-contrib-uglify
         uglify: {
             build: {
-                src: 'js/script.js',
-                dest: 'js/script.min.js'
+                src: '_scripts/scripts.compiled.js',
+                dest: 'public/js/script.min.js'
             },
             install: {
                 src: '_scripts/vendor/modernizr.js',
@@ -173,7 +176,7 @@ module.exports = function(grunt) {
         // Order is important here:
         watch: {
             css: {
-                files: ['css/**/*.scss'],
+                files: ['_styles/**/*.scss'],
                 tasks: ['sass', 'autoprefixer', 'cssmin'],
                 //tasks: ['compass', 'autoprefixer', 'cssmin'],
                 options: {
@@ -182,15 +185,15 @@ module.exports = function(grunt) {
             },
             
             scripts: {
-                files: ['js/**/*.js'],
-                tasks: ['concat', 'uglify'],
+                files: ['_scripts/**/*.js'],
+                tasks: ['concat:js', 'uglify:build'],
                 options: {
                     spawn: false
                 }        
             },
             
             svg: {
-                files: ['img-orig/**/*.svg'],
+                files: ['_images/**/*.svg'],
                 tasks: ['svgmin', 'svg2png'],
                 options: {
                     spawn: false
@@ -198,7 +201,7 @@ module.exports = function(grunt) {
             },
             
             images: {
-                files: ['img-orig/**/*.{png,jpg,gif}'],
+                files: ['_images/**/*.{png,jpg,gif}'],
                 tasks: ['imagemin'],
                 options: {
                     spawn: false
@@ -279,7 +282,7 @@ module.exports = function(grunt) {
     });
     
     
-    grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer', 'cssmin', 'svgmin', 'svg2png', 'imagemin']);
+    grunt.registerTask('default', ['concat:js', 'uglify:build', 'sass', 'autoprefixer', 'cssmin', 'svgmin', 'svg2png', 'imagemin']);
     
     // Process css using sass:
     grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin']);
@@ -293,7 +296,7 @@ module.exports = function(grunt) {
     // Set up the project:
     var setup_tasks = ['create_structure', 'bower', 'generate_index'];
     
-    if (copy_config)   { setup_tasks = setup_tasks.concat(['copy']); }
+    if (copy_config)   { setup_tasks = setup_tasks.concat(['copy', 'uglify:install', 'concat:js', 'uglify:build', 'css']); }
     if (rename_config) { setup_tasks.push('rename'); }
     
     grunt.registerTask('setup', setup_tasks);
