@@ -46,7 +46,7 @@ This should associate your new project with your new repo, complete with the Bed
 
 ### Step 3:
 
-You need to tell Node to load all the packages specified by `packages.json`. If you're confident to make changes to the packages you want, go ahead and edit this file, then run `nmp install`.
+You need to tell Node to load all the packages specified by `packages.json`. If you're confident to make changes to the packages you want, go ahead and edit this file, then run `npm install`.
 
 
 ### Step 4:
