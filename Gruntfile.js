@@ -40,8 +40,8 @@ NOTES
 module.exports = function(grunt) {
 
     // Extract the 'copy' config from bower.json:
-    var bower_config = grunt.file.readJSON('bower.json');
-    var copy_config  = bower_config['copy'];
+    var bower_config  = grunt.file.readJSON('bower.json');
+    var copy_config   = bower_config['copy'];
     var rename_config = bower_config['rename'];
     // Uncomment to verify copy config:
     //grunt.file.write('copy_config.json', JSON.stringify(copy_config));
@@ -276,7 +276,7 @@ module.exports = function(grunt) {
     grunt.registerTask('image', ['svgmin', 'svg2png', 'imagemin']);
     
     //(Re)build the project:
-    grunt.registerTask('build', ['create_structure', 'bower', 'copy', 'rename', 'generate_index', 'uglify:install']);
+    grunt.registerTask('setup', ['create_structure', 'bower', 'copy', 'rename', 'generate_index', 'uglify:install']);
     
     // Start up development mode:
     // @TODO add livereload stuff.
