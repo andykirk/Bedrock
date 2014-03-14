@@ -277,7 +277,7 @@ module.exports = function(grunt) {
     
     //(Re)build the project:
     //grunt.registerTask('build', ['create_structure', 'bower', 'copy', 'generate_index', 'uglify:install']);
-    grunt.registerTask('build', ['create_structure', 'bower', 'copy', 'rename', 'generate_index']);
+    grunt.registerTask('setup', ['create_structure', 'bower', 'copy', 'rename', 'generate_index']);
     
     // Start up development mode:
     // @TODO add livereload stuff.
