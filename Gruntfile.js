@@ -287,9 +287,9 @@ module.exports = function(grunt) {
     grunt.registerTask('image', ['svgmin', 'svg2png', 'imagemin']);
     
     // Set up the project:
-    var setup_tasks = ['create_structure', 'bower', 'generate_index', 'uglify:install'];
+    var setup_tasks = ['create_structure', 'bower', 'generate_index'];
     
-    if (copy_config)   { setup_tasks.push('copy');   }
+    if (copy_config)   { setup_tasks = setup_tasks.concat(['copy', 'uglify:install']); }
     if (rename_config) { setup_tasks.push('rename'); }
     
     grunt.registerTask('setup', setup_tasks);
