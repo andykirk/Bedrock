@@ -51,6 +51,12 @@
         "base_files/script.js"
       ],
       "dest": "_scripts/script.js"
+    },
+    {
+      "src": [
+        "base_files/.htaccess"
+      ],
+      "dest": "public/.htaccess"
     }
   ],
   "rename": {

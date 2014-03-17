@@ -37,6 +37,7 @@ NOTES
     'public/vid',
 ];*/
 
+var fs = require('fs');
 module.exports = function(grunt) {
 
     // 1. All configuration goes here
@@ -116,7 +117,31 @@ module.exports = function(grunt) {
                 }]
             }
         },
-                
+        
+        replace: {
+            stamp_css: {
+                src: ['public/index.html'],
+                overwrite: true,
+                replacements: [
+                    {
+                        from: /href="(.+)(\.min)(\.\d+)?(\.css)"/g,
+                        to: function (matchedWord, index, fullText, regexMatches) {
+                            var file  = regexMatches[0] + regexMatches[1] + regexMatches[3];
+                            //grunt.log.write(file);
+                            var path  = fs.realpathSync(process.cwd() + '/public/' + file);
+                            //grunt.log.write(path);
+                            var mtime = fs.statSync(path).mtime.getTime() / 1000;
+                            //grunt.log.write(mtime);
+                            
+                            var stamped_file = regexMatches[0] + regexMatches[1] + '.' + mtime + regexMatches[3];
+
+                            return 'href="' + stamped_file + '"';
+                        }
+                    }
+                ]
+            }
+        },
+     
         // https://github.com/gruntjs/grunt-contrib-sass
         sass: {
             options: {
@@ -252,6 +277,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-rename');
+    grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-svgmin');
     grunt.loadNpmTasks('grunt-svg2png');
     
@@ -281,11 +307,10 @@ module.exports = function(grunt) {
         grunt.log.write('Created file: ' + index_file);
     });
     
-    
     grunt.registerTask('default', ['concat:js', 'uglify:build', 'sass', 'autoprefixer', 'cssmin', 'svgmin', 'svg2png', 'imagemin']);
     
     // Process css using sass:
-    grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin']);
+    grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin', 'replace:stamp_css']);
     
     // Process css using compass:
     //grunt.registerTask('css', ['compass', 'autoprefixer', 'cssmin']);
