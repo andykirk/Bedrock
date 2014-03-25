@@ -103,11 +103,11 @@ C. Then autoprefixer will do it's thing and create `/_styles/style.prefixed.css`
 D. Then cssmin will create minify the file and put into `/public/css/style.min.css` for production use.
 
 
-Note, Ideas and To Do List
+Notes, Ideas and To Do List
 --------------------------
 
 ### Ideas for index.html flags/patterns:
-(Some of these will just in/exclude H5BP stuff, others will use markup form elsewhere or my own research)
+(Some of these will just in/exclude H5BP stuff, others will use markup from elsewhere or my own research)
 
 * IE8
 * Universal IE
