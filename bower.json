@@ -1,46 +1,23 @@
 {
-  "name": "bedrock",
-  "version": "0.1",
-  "main": "",
-  "ignore": [],
-  "dependencies": {
-    "jquery": "1.11.0",
-    "modernizr": "~2.7.1",
-    "normalize-css": "~3.0.0",
-    "ImageService": "~1.0.1"
-  },
-  "copy": [
-    {
-      "src": [
-        "bower_components/modernizr/modernizr.js"
-      ],
-      "dest": "_scripts/vendor/modernizr.js"
+    "name": "{{NAME}}",
+    "description": "This file lists all the front-end packages required for the project.",
+    "dependencies": {
+        "Fall-Back-Start-CSS":       "https://github.com/Fall-Back/Start-CSS.git",
+        "Fall-Back-Over-Panel":      "https://github.com/Fall-Back/Over-Panel.git",
+        "Fall-Back-Nav-Bar":         "https://github.com/Fall-Back/Nav-Bar.git",
+        "Fall-Back-Search-Form":     "https://github.com/Fall-Back/Search-Form.git",
+        "Fall-Back-Sticky-Footer":   "https://github.com/Fall-Back/Sticky-Footer.git"
     },
-    {
-      "src": [
-        "bower_components/jquery/dist/jquery.min.js"
-      ],
-      "dest": "public/js/vendor/jquery-1.11.0.min.js"
+    "fallback_extras": {
+        "Fall-Back-Top-Bar":         "https://github.com/Fall-Back/Top-Bar.git",
+        "Fall-Back-SVG":             "https://github.com/Fall-Back/SVG.git"
     },
-    {
-      "src": [
-        "bower_components/normalize-css/normalize.css"
-      ],
-      "dest": "public/css/vendor/normalize.css"
-    },
-    {
-      "src": [
-        "bower_components/ImageService/images.php"
-      ],
-      "dest": "public/img/images.php"
-    },
-    {
-      "src": [
-        "bower_components/ImageService/.htaccess"
-      ],
-      "dest": "public/img/.htaccess"
+    "inuit_extras": {
+        "inuit-defaults":            "latest",
+        "inuit-responsive-settings": "latest",
+        "inuit-responsive-tools":    "latest",
+        "inuit-widths":              "latest",
+        "inuit-tools-widths":        "latest",
+        "inuit-widths-responsive":   "latest"
     }
-  ],
-  "rename": {
-  }
 }
