@@ -30,6 +30,8 @@ module.exports = function(grunt) {
                     './bower_components/Fall-Back-Base/js/no-history.js',
                     './bower_components/Fall-Back-Base/js/opera-mini.js',
                     './bower_components/Fall-Back-SVG/js/svg.js'
+                    //'./bower_components/Fall-Back-Cookie-Notice/js/scookie-notice-settings.js',
+                    //'./bower_components/Fall-Back-Cookie-Notice/js/scookie-notice.js'
                 ],
                 dest: './_scripts/script.js'
             }/*,

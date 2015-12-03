@@ -10,7 +10,8 @@
     },
     "fallback_extras": {
         "Fall-Back-Top-Bar":         "https://github.com/Fall-Back/Top-Bar.git",
-        "Fall-Back-SVG":             "https://github.com/Fall-Back/SVG.git"
+        "Fall-Back-SVG":             "https://github.com/Fall-Back/SVG.git",
+        "Fall-Back-Cookie-Notice":   "https://github.com/Fall-Back/Cookie-Notice.git"
     },
     "inuit_extras": {
         "inuit-defaults":            "latest",

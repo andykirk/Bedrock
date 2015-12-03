@@ -39,7 +39,7 @@ powershell -Command "($file_content = (gc package.json) -replace '{{NAME}}', '"%
 powershell -Command "($file_content = (gc bower.json) -replace '{{NAME}}', '"%Nm%"'); [IO.File]::WriteAllLines('bower.json', $file_content)"
 
 :: Update _scripts/cookies.js:
-powershell -Command "($file_content = (gc _scripts/cookies.js) -replace '{{SITE_SHORTNAME}}', '"%Nm_s%"'); [IO.File]::WriteAllLines('_scripts/cookies.js', $file_content)"
+::powershell -Command "($file_content = (gc _scripts/cookies.js) -replace '{{SITE_SHORTNAME}}', '"%Nm_s%"'); [IO.File]::WriteAllLines('_scripts/cookies.js', $file_content)"
 
 :: Update composer.json:
 powershell -Command "($file_content = (gc composer.json) -replace '{{SITE_SHORTNAME}}', '"%Nm_s%"'); [IO.File]::WriteAllLines('composer.json', $file_content)"

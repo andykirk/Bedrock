@@ -77,5 +77,5 @@ You'll also need to create a file in the root folder called `.ftppass` with the 
 Watch:
 ------
 
-Currently `watch` is only set to run the CSS workflow as that is what takes the most development time for me - I tend to use JS rather sparingly.
+Currently `watch` is only set to run the CSS workflow as that is what takes the most development time for me - I tend to use images and JS rather sparingly (or at least, they don't get updated often).
 You can, of course add the other worklows to this task to have it watch everything.
