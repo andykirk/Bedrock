@@ -19,11 +19,11 @@ Installation
 
 Clone or copy this repo to you new project folder.
 
-On Windows 7+, you can run _new_prject.bat and fill in the project settings to fill in some of the most important placeholders.
+On Windows 7+, you can run _new_project.bat and fill in the project settings to fill in some of the most important placeholders.
 
-Cmd: npm install
+Cmd: `npm install`
 
-Cmd: bower install
+Cmd: `bower install`
 
 Note: many metadata declarations are not included in the various package files.
 It's my conclusion that since these package files represent dependencies for an actual project, not
