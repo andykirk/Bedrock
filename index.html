@@ -2,19 +2,51 @@
 <html lang="en-gb">
 <head>
     <meta charset="utf-8">
-    <title>{{TITLE}}</title>
+    <title>{{TITLE}} | {{NAME}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{DESCRIPTION}}">
     <meta name="author" content="{{AUTHOR}}">
-	
-	<!-- Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+, IE 10+ (including Edge) -->
-    <link rel="stylesheet" href="css/your-stylesheet.css"
-      media="only screen and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0), (-ms-high-contrast: none)">
-    <!-- FF 29+ -->
-    <link rel="stylesheet" href="css/your-stylesheet.css"
-      media="only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)">
-      
-      
+
+    <!--
+        DELETE ME
+        Template from Bedrock (https://github.com/andykirk/Bedrock)
+    -->
+
+    <style>
+        /* Tiny fallback styles: */
+        /* (https://github.com/Fall-Back/Base/blob/master/tiny-fallback-styles.css */
+
+        body{padding:1em;margin:0 auto;max-width: 50em;}
+        img{max-width:100%;-ms-interpolation-mode: bicubic;}
+        [hidden]{display:none;}
+        main{display:block;}
+
+        /* For YouTube via http://embedresponsively.com. May or may not be needed. */
+        .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    </style>
+
+    <!--
+        Print (Edge doesn't apply to print otherwise)
+        IE 10, 11
+        Edge
+        Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+        FF 29+
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,900" media="
+        only print,
+        only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+        only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+        only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+        only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+    ">
+    <link rel="stylesheet" href="your-stylesheet.css" media="
+        only print,
+        only all and (-ms-high-contrast: none), only all and (-ms-high-contrast: active),
+        only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+        only all and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0),
+        only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)
+    ">
+
     <!-- Piwik: no-js -->
     <!--<noscript>
         <link rel="stylesheet" href="/piwik/piwik.php?idsite=1&amp;rec=1&amp;_cvar=%7B%225%22%3A%5B%22no-js%22%2C%22true%22%5D%7D" />
@@ -22,23 +54,23 @@
     <!-- End Piwik Code -->
 </head>
 <body role="document">
-    
+
     <div class="off-canvas  off-canvas--right  sticky-footer-outer-wrap" id="right-panel">
         <div class="off-canvas__inner  sticky-footer-wrap">
             <a href="#" tabindex="-1" class="off-canvas__overlay  js-no-history"></a>
-            
-            <div class="no-style-notice">
+
+            <div class="no-css-only" aria-hidden="true">
                 <hr />
                 <p>
                     <b>Notice:</b> You are viewing an <em>unstyled</em> version of this page. Are you using a very old browser? If so, <a href="http://browsehappy.com/">please consider upgrading</a>.
                 </p>
                 <hr />
             </div>
-            
+
             <header role="banner">
-            
+
                 <div class="nav-bar">
-                    
+
                     <div class="nav-bar__title-section">
 
                         <div class="svg  svg--fixed-height  svg-logo">
@@ -52,7 +84,7 @@
                                 <div><i class="svg__fallback-text-beta">{{SITENAME}} home</i></div>
                             </a>
                         </div>
-                        
+
                     </div>
                     <div class="off-canvas__controls--right">
                         <a href="#right-panel" tabindex="-1" class="off-canvas__open  js-no-history"></a>
@@ -104,10 +136,10 @@
                 </div>
 
             </header>
-                            
-            <main role="main">
+
+            <main role="main" id="main">
                 <h1>{{PAGE_TITLE}}</h1>
-                
+
                 {{CONTENT}}
             </main>
 
@@ -116,11 +148,11 @@
                     <a href="#">Top</a> | &copy; Andy Kirk 2015
                 </p>
             </footer>
-            
+
         </div>
     </div>
 
     <script src="/js/script.min.js"></script>
-    
+
 </body>
 </html>

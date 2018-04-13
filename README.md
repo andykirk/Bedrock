@@ -25,6 +25,8 @@ Cmd: `npm install`
 
 Cmd: `bower install`
 
+If using PHP, cmd: `composer install`
+
 Note: many metadata declarations are not included in the various package files.
 It's my conclusion that since these package files represent dependencies for an actual project, not
 a package/library/module/tool that's intended to be consumed by others, these metadata aren't needed

@@ -2,23 +2,17 @@
     "name": "{{NAME}}",
     "description": "This file lists all the front-end packages required for the project.",
     "dependencies": {
-        "Fall-Back-Start-CSS":       "https://github.com/Fall-Back/Start-CSS.git",
-        "Fall-Back-Over-Panel":      "https://github.com/Fall-Back/Over-Panel.git",
-        "Fall-Back-Nav-Bar":         "https://github.com/Fall-Back/Nav-Bar.git",
-        "Fall-Back-Search-Form":     "https://github.com/Fall-Back/Search-Form.git",
-        "Fall-Back-Sticky-Footer":   "https://github.com/Fall-Back/Sticky-Footer.git"
+        "Fall-Back-Base":            "https://github.com/Fall-Back/Base.git",
+        "Fall-Back-Start-CSS":       "https://github.com/Fall-Back/Start-CSS.git"
     },
     "fallback_extras": {
-        "Fall-Back-Top-Bar":         "https://github.com/Fall-Back/Top-Bar.git",
-        "Fall-Back-SVG":             "https://github.com/Fall-Back/SVG.git",
-        "Fall-Back-Cookie-Notice":   "https://github.com/Fall-Back/Cookie-Notice.git"
-    },
-    "inuit_extras": {
-        "inuit-defaults":            "latest",
-        "inuit-responsive-settings": "latest",
-        "inuit-responsive-tools":    "latest",
-        "inuit-widths":              "latest",
-        "inuit-tools-widths":        "latest",
-        "inuit-widths-responsive":   "latest"
+        "Fall-Back-Cookie-Notice":   "https://github.com/Fall-Back/Cookie-Notice.git",
+        "Fall-Back-Dropdown":        "https://github.com/Fall-Back/Dropdown.git",
+        "Fall-Back-Nav-Bar":         "https://github.com/Fall-Back/Nav-Bar.git",
+        "Fall-Back-Over-Panel":      "https://github.com/Fall-Back/Over-Panel.git",       
+        "Fall-Back-Search-Form":     "https://github.com/Fall-Back/Search-Form.git",
+        "Fall-Back-Sticky-Footer":   "https://github.com/Fall-Back/Sticky-Footer.git",
+        "Fall-Back-SVG":             "https://github.com/Fall-Back/SVG.git"
+        
     }
 }
