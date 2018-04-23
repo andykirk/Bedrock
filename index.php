@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
-$_ = new HTMLHelpers\PageHelper\PageHelper();
+$_ = new AndyKirk\PHPHelpers\PageHelper\PageHelper();
 $_->html_class_separator = '  ';
 
 $_->page_id     = 'andykirk';
@@ -9,8 +9,10 @@ $_->page_title  = 'Andy Kirk';
 $_->sitename    = 'AndyKirk.net';
 $_->author      = 'Andy Kirk';
 $_->description = 'Andy is an Oxford-based web-developer and designer.';
+$_->fonts       = array(
+    'https://fonts.googleapis.com/css?family=Lato:400,700,900'
+);
 $_->stylesheets = array(
-    'https://fonts.googleapis.com/css?family=Lato:400,700,900',
     'your-stylesheet.css'
 );
 
@@ -38,6 +40,17 @@ $_->stylesheets = array(
     <style>
         <?php file_get_contents('bower_components/Fall-Back-Base/tiny-fallback-styles.css'); ?>
     </style>
+    
+    <!--
+        Accessible font loading. FOUT is a lesser evil than FOIT.
+        (https://keithclark.co.uk/articles/loading-css-without-blocking-render/)
+    -->
+    <?php $_->show('fonts'); ?>
+    <link rel="stylesheet" href="$font"
+        media="none"
+        onload="if(media!='all')media='all'"
+    >
+    <?php $_->endshow; ?>
     
     <!--
         Print (Edge doesn't apply to print otherwise)
@@ -72,6 +85,11 @@ $_->stylesheets = array(
 </head>
 <body role="document"<?php $_->id('page_id'); ?>>
 
+    <main role="main" id="main">
+        <h1><?php echo $_->page_title; ?></h1>
+
+        <?php // CONTENT ?>
+    </main>
 
     <?php $_->show('foot_scripts'); ?>
     <script src="$foot_scripts"></script>

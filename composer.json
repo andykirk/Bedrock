@@ -3,6 +3,12 @@
     "type": "project",
     "version": "0.0.1",
     "description": "This file lists all the PHP packages required for the project.",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/andykirk/PHP-Helpers"
+        }
+    ],
     "require": {
         "php": ">=5.3.3"
     },
@@ -12,15 +18,14 @@
         "michelf/php-markdown": "1.4.*",
         "slim/slim":            "2.4.*",
         "knplabs/github-api":   "~1.4",
-        "twig/twig":            "~1.0"
+        "twig/twig":            "~1.0",
+        "andykirk/PHP-Helpers": "dev-master"
     },
     "autoload_extras": {
         "psr-0": {
             "Textpress": "src/shameerc"
         },
         "psr-4": {
-            "HTMLHelpers\\PageHelper\\": "vendor/HTMLHelpers/PageHelper",
-            "HTMLHelpers\\FormHelper\\": "vendor/HTMLHelpers/FormHelper"
 	    }
     }
 }

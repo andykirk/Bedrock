@@ -138,7 +138,7 @@ class PageHelper {
     #protected $check    = array();
 
     /**
-     * Stores array of valid attributes usable via magic attr method, and if they can contain
+     * Stores array of valid attributes useable via magic attr method, and if they can contain
      * multiple space-separated values (like classes).
      * @var array
      **/
@@ -158,9 +158,6 @@ class PageHelper {
         $this->setDefaultData();
     }
 
-    
-
-
     /**
      * PageHelper::setDefaultData();
      */
@@ -169,6 +166,7 @@ class PageHelper {
             'author'       => '',
             'description'  => '',
             'encoding'     => 'utf-8',
+            'fonts'        => array(),
             'foot_script'  => '',
             'foot_scripts' => '',
             'head_script'  => '',
@@ -184,7 +182,6 @@ class PageHelper {
             'title'        => '',
             'sitename'     => ''
         );
-
     }
 
 
@@ -668,9 +665,24 @@ class PageHelper {
             $indent = $matches[0];
         }
         
+        
+        // Check the data exists and determine if it's an array or not:
+        // (if not show the 'orshow' block if it exists, or a line-break if not)
+        $data_ok  = false;
+        if (
+            $key
+         && array_key_exists($key, $this->data)
+         && !empty($this->data[$key])
+         && (is_array($this->data[$key]) || is_string($this->data[$key]))
+        ) {
+            $data_ok  = true;
+        }
 
-        // If there was no key, we're not looping, so just do a simple parse:
-        if (!$key) {
+        
+        
+        // If there was no key or the key was a valid string, we're not looping, so just do a simple
+        // parse:
+        if (!$key || (is_string($this->data[$key]) && $data_ok)) {
             if (strpos($ob, PHP_EOL) === false) {
                 $output = $this->parseTag($ob, $this->data);
             } else {
@@ -683,18 +695,7 @@ class PageHelper {
             return;
         }
 
-        // Check the data exists and is a non-empty array:
-        // (if not show the 'orshow' block if it exists, or a line-break if not)
-        $data_ok = true;
-        if (
-            !array_key_exists($key, $this->data)
-         || !is_array($this->data[$key])
-         || empty($this->data[$key])
-        ) {
-            $data_ok  = false;
-        }
-        #echo '<pre>'; var_dump($data_ok); echo '</pre>';
-        #echo '<pre>'; var_dump($orshow); echo '</pre>';
+        // If the data wasn't valid, check for the `orshow` block:
         if (!$data_ok) {
             if ($orshow) {
                 echo PHP_EOL . $orshow_block . PHP_EOL;
@@ -705,10 +706,16 @@ class PageHelper {
             }
         }
         
+        #echo '<pre>'; var_dump($data_ok); echo '</pre>';
+        #echo '<pre>'; var_dump($orshow); echo '</pre>';
+        
+        // We're only checking the data, so no further processing required:
         if ($check) {
             echo PHP_EOL . $ob;
             return;
         }
+        
+        // Data is ok and must be an array, so start looping:
 
         // Determine the indentation from the buffer template:
        
