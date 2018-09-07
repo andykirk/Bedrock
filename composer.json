@@ -15,10 +15,10 @@
     "autoload": {
     },
     "require_extras": {
-        "michelf/php-markdown": "1.4.*",
+        "michelf/php-markdown": "^1.8",
         "slim/slim":            "2.4.*",
         "knplabs/github-api":   "~1.4",
-        "twig/twig":            "~1.0",
+        "twig/twig": "2.0",
         "andykirk/PHP-Helpers": "dev-master"
     },
     "autoload_extras": {
